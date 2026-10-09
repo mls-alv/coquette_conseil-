@@ -1,0 +1,198 @@
+
+<div id="seasonDecor">☁️ 🎀 ✨ 🌷</div>
+
+<header>
+  <h1>☁️ Coquette Conseil 🎀</h1>
+  <p>Ton petit cocon rien qu’à toi ♡</p>
+</header>
+
+<section id="quiz" class="panel">
+  <div class="big">🎀</div>
+  <h2>Bienvenue dans ton cocon !</h2>
+  <p>Réponds aux questions pour personnaliser ton univers.</p>
+
+  <label>Ton prénom ou surnom</label>
+  <input id="prenom" placeholder="Mon petit surnom">
+
+  <label>Ton âge</label>
+  <select id="age">
+    <option>11–14 ans</option>
+    <option>15–18 ans</option>
+    <option>19 ans et +</option>
+  </select>
+
+  <label>Ton ambiance préférée</label>
+  <select id="ambiance">
+    <option value="pink">Rose coquette 🩷</option>
+    <option value="blue">Bleu nuageux 🩵</option>
+    <option value="lilac">Lilas féerique 💜</option>
+    <option value="night">Coquette de nuit 🌙</option>
+    <option value="mint">Menthe pastel 🌿</option>
+  </select>
+
+  <label>Ton sujet préféré</label>
+  <select id="interet">
+    <option>École & organisation 📚</option>
+    <option>Amitié & relations 💌</option>
+    <option>Confiance & bien-être 🫧</option>
+    <option>Vie quotidienne 🌷</option>
+  </select>
+
+  <label>Ton humeur</label>
+  <select id="humeur">
+    <option>Curieuse ✨</option>
+    <option>Calme ☁️</option>
+    <option>Joyeuse 🌸</option>
+    <option>Un peu perdue 🩷</option>
+  </select>
+
+  <button onclick="startSite()">Créer mon cocon ✨</button>
+</section>
+
+<section id="loading" class="panel hidden">
+  <div class="big">☁️ 🎀 ☁️</div>
+  <h2>Bon endroit, tes idées ✨</h2>
+  <p>Je prépare ton petit univers personnalisé…</p>
+  <div class="loader"></div>
+</section>
+
+<main id="site" class="hidden">
+  <section class="panel">
+    <div class="big">🩷 ☁️ 🎀</div>
+    <h2 id="welcome">Coucou !</h2>
+    <p>Un petit espace pour tes idées et tes envies.</p>
+    <p id="seasonMessage"></p>
+  </section>
+
+  <nav>
+    <button onclick="showPage('home')">🏠 Accueil</button>
+    <button onclick="showPage('conseils')">💌 Conseils</button>
+    <button onclick="showPage('tenues')">👗 Tenues</button>
+    <button onclick="showPage('garde')">👚 Garde-robe</button>
+    <button onclick="showPage('emotions')">🫧 Émotions</button>
+    <button onclick="showPage('profil')">🎀 Profil</button>
+  </nav>
+
+  <section id="home" class="page">
+    <h2>Ton petit univers 🌷</h2>
+    <div class="cards">
+      <button class="tile" onclick="showPage('conseils')">💌<br>Conseils</button>
+      <button class="tile" onclick="showPage('tenues')">👗<br>Tenues</button>
+      <button class="tile" onclick="showPage('garde')">👚<br>Garde-robe</button>
+      <button class="tile" onclick="showPage('emotions')">🫧<br>Émotions</button>
+    </div>
+    <div class="panel">
+      <h3>✨ Une petite pensée</h3>
+      <p id="dailyTip">Tu as le droit d’avancer à ton rythme. ♡</p>
+      <button onclick="newTip()">Une autre pensée 🌸</button>
+    </div>
+  </section>
+
+  <section id="conseils" class="page hidden">
+    <h2>La bibliothèque des conseils 💌</h2>
+    <p>Appuie sur une carte pour lire son conseil.</p>
+    <div class="chips">
+      <button onclick="filterAdvice('Tous')">Tout 🌷</button>
+      <button onclick="filterAdvice('École')">École 📚</button>
+      <button onclick="filterAdvice('Relations')">Relations 💌</button>
+      <button onclick="filterAdvice('Bien-être')">Bien-être 🫧</button>
+      <button onclick="filterAdvice('Quotidien')">Quotidien ☁️</button>
+    </div>
+    <div id="adviceList" class="adviceList"></div>
+  </section>
+
+  <section id="garde" class="page hidden">
+    <h2>Ma garde-robe 👚</h2>
+    <p>Ajoute tes vêtements pour préparer des idées de tenues.</p>
+
+    <label>Nom du vêtement</label>
+    <input id="itemName" placeholder="Ex. cardigan rose">
+
+    <label>Catégorie</label>
+    <select id="itemType">
+      <option>Haut</option>
+      <option>Bas</option>
+      <option>Robe</option>
+      <option>Veste</option>
+      <option>Chaussures</option>
+      <option>Accessoire</option>
+    </select>
+
+    <label>Couleur</label>
+    <input id="itemColor" placeholder="Ex. rose, blanc, bleu">
+
+    <label>Photo facultative</label>
+    <input id="itemPhoto" type="file" accept="image/*">
+
+    <button onclick="addClothing()">Ajouter à ma garde-robe 🩷</button>
+    <div id="wardrobeList" class="adviceList"></div>
+  </section>
+
+  <section id="tenues" class="page hidden">
+    <h2>Mon petit styliste 👗</h2>
+
+    <label>Mon style</label>
+    <select id="styleChoice">
+      <option>Coquette 🎀</option>
+      <option>Confort ☁️</option>
+      <option>Casual 🌷</option>
+      <option>Élégant ✨</option>
+      <option>Sportif 🩵</option>
+    </select>
+
+    <label>Mon occasion</label>
+    <select id="occasion">
+      <option>Une journée normale</option>
+      <option>L’école 📚</option>
+      <option>Une sortie entre amies 💌</option>
+      <option>Cocooning ☁️</option>
+      <option>Une fête 🎉</option>
+    </select>
+
+    <button onclick="makeOutfit()">Trouver une tenue ✨</button>
+    <div id="outfitResult" class="panel">
+      Tes idées de tenues apparaîtront ici. 🌸
+    </div>
+    <p class="small">Les idées utilisent les descriptions que tu ajoutes.</p>
+  </section>
+
+  <section id="emotions" class="page hidden">
+    <h2>Ma bulle d’émotions 🫧</h2>
+
+    <div class="panel">
+      <h3>🌸 Fais une pause</h3>
+      Installe-toi confortablement et prends quelques instants pour souffler.
+    </div>
+
+    <div class="panel">
+      <h3>💗 Comment te sens-tu ?</h3>
+      <select id="emotionChoice">
+        <option>Je suis heureuse 🌸</option>
+        <option>Je suis stressée ☁️</option>
+        <option>Je suis triste 🩵</option>
+        <option>Je suis en colère 🌧️</option>
+        <option>Je ne sais pas trop 🫧</option>
+      </select>
+      <button onclick="showEmotion()">Mon petit conseil</button>
+      <p id="emotionResult"></p>
+    </div>
+  </section>
+
+  <section id="profil" class="page hidden">
+    <h2>Mon profil 🎀</h2>
+    <div class="panel">
+      <p id="profileName">Bienvenue dans ton cocon !</p>
+      <label>Changer de thème</label>
+      <select id="themeChoice" onchange="changeTheme(this.value)">
+        <option value="pink">Rose coquette 🩷</option>
+        <option value="blue">Bleu nuageux 🩵</option>
+        <option value="lilac">Lilas féerique 💜</option>
+        <option value="night">Coquette de nuit 🌙</option>
+        <option value="mint">Menthe pastel 🌿</option>
+      </select>
+      <button onclick="resetSite()">Recommencer le quiz 🔄</button>
+    </div>
+  </section>
+
+  <footer>Fait avec amour et des nuages ☁️🎀</footer>
+</main>
