@@ -1,0 +1,20 @@
+
+body.quiz-open {
+  background: white;
+}
+
+body.quiz-open header,
+body.quiz-open #seasonDecor {
+  display: none;
+}
+
+body.quiz-open #quiz,
+body.quiz-open #loading {
+  max-width: 520px;
+  margin: 20px auto;
+}
+#quiz {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
